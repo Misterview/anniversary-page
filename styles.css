@@ -537,179 +537,173 @@ body {
   .memories-container {
     max-width: 100vw;
     width: 100vw;
-    margin-top: 24px;
-    padding: 0 4vw;
-    background: rgba(245, 247, 250, 0.9);
-  }
-  .memories-content {
-    margin-top: 18px;
+    margin-top: 12px;
+    padding: 0 2vw;
+    background: rgba(245, 247, 250, 0.95);
   }
   .memories-title {
-    font-size: 28px;
+    font-size: 24px;
     word-break: break-word;
   }
   .memories-icon {
-    font-size: 22px;
-    margin-left: 4px;
+    font-size: 16px;
+    margin-left: 2px;
   }
   .memories-desc {
-    font-size: 15px;
-    margin-bottom: 16px;
+    font-size: 12px;
+    margin-bottom: 10px;
   }
   .memories-form {
-    gap: 6px;
-    margin-bottom: 18px;
+    gap: 4px;
+    margin-bottom: 10px;
   }
   .code-input {
-    width: 28px;
-    height: 34px;
-    font-size: 16px;
+    width: 22px;
+    height: 28px;
+    font-size: 12px;
     border-width: 2px;
   }
   .memories-message {
-    font-size: 16px;
-    margin-bottom: 10px;
+    font-size: 12px;
+    margin-bottom: 6px;
   }
   .memories-photo {
-    width: 80px;
-    height: 80px;
-    border-radius: 12px;
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
     border-width: 2px;
   }
   .container {
-    margin-top: 18px;
+    margin-top: 8px;
     width: 100vw;
-    padding: 0 4vw;
+    padding: 0 2vw;
   }
-  .title, .subtitle {
-    font-size: 28px;
-    text-shadow: 0 0 6px #6ec6ff88, 0 0 12px #6ec6ff44;
+  .title {
+    font-size: 32px;
+    margin-bottom: 0;
   }
-  .title .star, .title .star2 {
-    font-size: 18px;
-    left: -18px;
-    right: -18px;
-    top: -12px;
+  .anniversary-text {
+    font-size: 20px;
+    margin: 0;
   }
   .subtitle {
-    margin-top: -4px;
+    font-size: 28px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
-  .naming {
-    font-size: 18px;
-    gap: 4px;
-    margin-top: 4px;
-  }
-  .naming .party {
-    font-size: 14px;
+  .title .star, .title .star2 {
+    font-size: 12px;
+    left: -10px;
+    right: -10px;
+    top: -8px;
   }
   .images {
-    margin-top: 12px;
-    gap: 4px;
+    margin-top: 8px;
+    gap: 2px;
   }
   .img-main {
-    width: 100px;
-    height: 110px;
-    border-radius: 10px;
+    width: 60px;
+    height: 70px;
+    border-radius: 6px;
   }
   .img-small, .img-small2 {
-    width: 24px;
-    height: 36px;
-    border-radius: 6px;
-    margin-bottom: 12px;
+    width: 14px;
+    height: 22px;
+    border-radius: 3px;
+    margin-bottom: 4px;
   }
   .music-player {
-    width: 96vw;
-    padding: 6px 2vw 6px 2vw;
-    border-radius: 10px;
-    background: rgba(245, 247, 250, 0.9);
+    width: 98vw;
+    padding: 4px 1vw 4px 1vw;
+    border-radius: 6px;
+    background: rgba(245, 247, 250, 0.98);
   }
   .music-info {
-    gap: 6px;
-    margin-bottom: 2px;
+    gap: 2px;
+    margin-bottom: 1px;
   }
   .music-cover {
-    width: 20px;
-    height: 20px;
-    border-radius: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
   }
   .music-title {
-    font-size: 10px;
+    font-size: 7px;
   }
   .music-artist {
-    font-size: 7px;
+    font-size: 5px;
   }
   .music-progress-group {
     gap: 1px;
-    margin: 3px 0 2px 0;
+    margin: 1px 0 1px 0;
   }
   .music-time {
-    font-size: 6px;
-    width: 14px;
+    font-size: 4px;
+    width: 8px;
   }
   #progress-bar {
-    height: 2px;
-    border-radius: 2px;
+    height: 1px;
+    border-radius: 1px;
   }
   #progress-bar::-webkit-slider-thumb, #progress-bar::-moz-range-thumb {
-    width: 6px;
-    height: 6px;
+    width: 3px;
+    height: 3px;
   }
   .music-controls {
-    gap: 6px;
-    margin-top: 1px;
+    gap: 2px;
+    margin-top: 0;
   }
   .music-btn {
-    font-size: 10px;
-    padding: 2px 3px;
-    font-size: 18px;
-    padding: 4px 6px;
+    font-size: 8px;
+    padding: 1px 2px;
     border-radius: 50%;
   }
   .blessing-box {
-    width: 98vw;
+    width: 99vw;
     min-width: 0;
-    padding: 8px 2vw 8px 2vw;
-    border-radius: 12px;
-    margin-top: 14px;
-    background: rgba(245, 247, 250, 0.9);
+    padding: 4px 1vw 4px 1vw;
+    border-radius: 6px;
+    margin-top: 6px;
+    background: rgba(245, 247, 250, 0.98);
   }
   .blessing-message {
-    font-size: 10px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    font-size: 7px;
+    padding-top: 1px;
+    padding-bottom: 1px;
   }
   .blessing-star {
-    font-size: 16px;
-    right: 4px;
-    top: 2px;
+    font-size: 8px;
+    right: 2px;
+    top: 1px;
   }
   .modal-content {
-    max-width: 98vw;
-    max-height: 60vh;
-    border-radius: 8px;
-    background: rgba(245, 247, 250, 0.98);
+    max-width: 99vw;
+    max-height: 40vh;
+    border-radius: 4px;
+    background: rgba(245, 247, 250, 0.99);
   }
   .modal-close {
-    top: 8px;
-    right: 8px;
-    font-size: 18px;
-    width: 24px;
-    height: 24px;
+    top: 4px;
+    right: 4px;
+    font-size: 10px;
+    width: 14px;
+    height: 14px;
   }
   .memory-item {
-    background: rgba(245, 247, 250, 0.95);
+    background: rgba(245, 247, 250, 0.98);
   }
   .modal {
-    background: rgba(245, 247, 250, 0.98);
+    background: rgba(245, 247, 250, 0.99);
   }
   .modal-content {
-    background: rgba(245, 247, 250, 0.98);
+    background: rgba(245, 247, 250, 0.99);
   }
   input[type="text"], input[type="date"], textarea {
-    background: rgba(245, 247, 250, 0.9);
+    background: rgba(245, 247, 250, 0.98);
     color: #7f8c8d;
     border: 1px solid #bdc3c7;
     box-shadow: 0 2px 8px rgba(127, 140, 141, 0.05);
+    font-size: 12px;
   }
   input[type="text"]:focus, input[type="date"]:focus, textarea:focus {
     border-color: #95a5a6;
@@ -719,6 +713,9 @@ body {
     background: #95a5a6;
     color: white;
     box-shadow: 0 2px 8px rgba(149, 165, 166, 0.2);
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 6px;
   }
   button:hover {
     background: #7f8c8d;
