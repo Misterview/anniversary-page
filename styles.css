@@ -2,11 +2,19 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: 'Prompt', sans-serif;
-  background: linear-gradient(120deg, #232526 0%, #414345 100%);
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+  color: #7f8c8d;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Memories Section */
@@ -15,28 +23,45 @@ body {
   margin-top: 60px;
   max-width: 700px;
   text-align: center;
+  background: none;
+  color: #7f8c8d;
+  box-shadow: none;
+  border: none;
+  transition: none;
+  animation: fadeIn 1s ease;
+}
+.memories-container:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 40px 0 rgba(127, 140, 141, 0.15), 0 4px 12px rgba(127, 140, 141, 0.15);
 }
 .memories-title {
   font-family: 'Prompt', sans-serif;
   font-size: 64px;
   font-weight: bold;
-  color: #6ec6ff;
+  color: #95a5a6;
   margin-bottom: 0px;
   line-height: 1.05;
   display: inline-block;
   position: relative;
+  animation: glow 2s ease-in-out infinite alternate;
 }
 .memories-icon {
   font-size: 48px;
   vertical-align: middle;
   margin-left: 10px;
+  animation: bounce 1s ease infinite alternate;
+}
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-5px); }
 }
 .memories-desc {
-  color: #f48fb1;
+  color: #bdc3c7;
   font-size: 22px;
   margin-top: 10px;
   margin-bottom: 30px;
   font-family: 'Prompt', sans-serif;
+  animation: fadeIn 1s ease 0.5s both;
 }
 .memories-form {
   display: flex;
@@ -47,19 +72,21 @@ body {
 .code-input {
   width: 56px;
   height: 70px;
-  border: 3px solid #6ec6ff;
+  border: 3px solid #95a5a6;
   border-radius: 50%;
   font-size: 38px;
   text-align: center;
-  color: #6ec6ff;
-  background: #fff;
+  color: #95a5a6;
+  background: #f5f7fa;
   outline: none;
   font-family: 'Prompt', sans-serif;
-  transition: border 0.2s;
+  transition: all 0.3s ease;
 }
 .code-input:focus {
-  border: 3px solid #6ec6ff;
-  background: #e3f6ff;
+  border: 3px solid #95a5a6;
+  background: #ecf0f1;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(149, 165, 166, 0.2);
 }
 .memories-content {
   margin-top: 30px;
@@ -67,17 +94,23 @@ body {
 }
 .memories-message {
   font-size: 28px;
-  color: #f48fb1;
+  color: #bdc3c7;
   margin-bottom: 18px;
   font-family: 'Prompt', sans-serif;
+  animation: fadeIn 1s ease 1s both;
 }
 .memories-photo {
   width: 180px;
   height: 180px;
   border-radius: 24px;
   object-fit: cover;
-  border: 4px solid #f48fb1;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  border: 4px solid #95a5a6;
+  box-shadow: 0 4px 16px rgba(127, 140, 141, 0.1);
+  transition: all 0.3s ease;
+}
+.memories-photo:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 24px rgba(127, 140, 141, 0.15);
 }
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }
@@ -93,17 +126,19 @@ body {
   margin-top: 40px;
 }
 .title {
-  color: #6ec6ff;
-  font-size: 64px;
+  color: #95a5a6;
+  font-size: 72px;
   font-weight: bold;
   text-align: center;
-  line-height: 1.1;
+  line-height: 1;
   position: relative;
-  text-shadow: 0 0 10px #6ec6ff88, 0 0 30px #6ec6ff44;
+  text-shadow: 0 0 10px rgba(149, 165, 166, 0.3), 0 0 30px rgba(149, 165, 166, 0.2);
   animation: glow 2s ease-in-out infinite alternate;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 .title .star {
-  color: #ffb6c1;
+  color: #bdc3c7;
   font-size: 40px;
   position: absolute;
   left: -40px;
@@ -111,7 +146,7 @@ body {
   animation: twinkle 1.5s infinite alternate;
 }
 .title .star2 {
-  color: #ffb6c1;
+  color: #bdc3c7;
   font-size: 40px;
   position: absolute;
   right: -40px;
@@ -123,23 +158,25 @@ body {
   100% { opacity: 1; transform: scale(1.2); }
 }
 @keyframes glow {
-  from { text-shadow: 0 0 10px #6ec6ff88, 0 0 30px #6ec6ff44; }
-  to { text-shadow: 0 0 30px #6ec6ffcc, 0 0 60px #6ec6ff66; }
+  from { text-shadow: 0 0 10px rgba(149, 165, 166, 0.3), 0 0 30px rgba(149, 165, 166, 0.2); }
+  to { text-shadow: 0 0 30px rgba(149, 165, 166, 0.5), 0 0 60px rgba(149, 165, 166, 0.3); }
 }
 .subtitle {
-  color: #6ec6ff;
+  color: #95a5a6;
   font-size: 64px;
   font-weight: bold;
   text-align: center;
-  margin-top: -10px;
+  margin-top: 0;
   animation: floatText 3s ease-in-out infinite;
+  line-height: 1;
+  margin-bottom: 0;
 }
 @keyframes floatText {
   0%,100%{transform:translateY(0);}
   50%{transform:translateY(-10px);}
 }
 .naming {
-  color: #6ec6ff;
+  color: #95a5a6;
   font-size: 48px;
   font-weight: bold;
   text-align: center;
@@ -222,10 +259,10 @@ body {
 
 /* Music Player */
 .music-player {
-  background: rgba(35,37,38,0.85);
-  color: #6ec6ff;
+  background: rgba(245, 247, 250, 0.85);
+  color: #7f8c8d;
   border-radius: 18px;
-  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18), 0 2px 8px #23252655;
+  box-shadow: 0 8px 32px 0 rgba(127, 140, 141, 0.1), 0 2px 8px rgba(127, 140, 141, 0.1);
   padding: 18px 14px 12px 14px;
   margin-top: 32px;
   width: 280px;
@@ -237,7 +274,12 @@ body {
   overflow: hidden;
   backdrop-filter: blur(8px);
   border: 1.5px solid rgba(255,255,255,0.08);
+  transition: all 0.3s ease;
   animation: fadeInMusic 1.2s cubic-bezier(.4,2,.6,1) both;
+}
+.music-player:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 40px 0 rgba(127, 140, 141, 0.15), 0 4px 12px rgba(127, 140, 141, 0.15);
 }
 @keyframes fadeInMusic { from { opacity: 0; transform: translateY(40px) scale(0.95);} to { opacity: 1; transform: none;} }
 .music-info {
@@ -251,14 +293,14 @@ body {
   height: 38px;
   border-radius: 10px;
   object-fit: cover;
-  box-shadow: 0 2px 8px #23252655;
-  border: 2.5px solid #6ec6ff;
-  transition: box-shadow 0.3s, transform 0.5s cubic-bezier(.4,2,.6,1);
+  box-shadow: 0 2px 8px rgba(127, 140, 141, 0.1);
+  border: 2.5px solid #95a5a6;
+  transition: all 0.3s ease;
 }
 .music-player.playing .music-cover {
   animation: rotateCover 3.5s linear infinite;
-  box-shadow: 0 0 24px #6ec6ffaa, 0 2px 8px #23252655;
-  border-color: #6ec6ff;
+  box-shadow: 0 0 24px rgba(149, 165, 166, 0.3), 0 2px 8px rgba(127, 140, 141, 0.1);
+  border-color: #95a5a6;
 }
 @keyframes rotateCover { 100% { transform: rotate(360deg); } }
 .music-title-group {
@@ -269,15 +311,15 @@ body {
 .music-title {
   font-size: 18px;
   font-weight: bold;
-  color: #6ec6ff !important;
-  text-shadow: 0 2px 8px #23252633;
+  color: #7f8c8d !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   letter-spacing: 0.01em;
   margin-bottom: 2px;
   animation: fadeInMusic 1.2s 0.2s both;
 }
 .music-artist {
   font-size: 12px;
-  color: #6ec6ff !important;
+  color: #bdc3c7 !important;
   font-weight: 600;
   opacity: 0.8;
   letter-spacing: 0.01em;
@@ -292,28 +334,32 @@ body {
 }
 .music-time {
   font-size: 11px;
-  color: #6ec6ff !important;
+  color: #bdc3c7 !important;
   width: 32px;
   text-align: center;
   font-weight: bold;
-  text-shadow: 0 2px 8px #23252633;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeInMusic 1.2s 0.4s both;
 }
 #progress-bar {
   flex: 1;
-  accent-color: #6ec6ff;
+  accent-color: #95a5a6;
   height: 4px;
   border-radius: 4px;
-  background: linear-gradient(90deg, #6ec6ff 0%, #6ec6ff 100%);
-  box-shadow: 0 0 8px #6ec6ffaa;
+  background: linear-gradient(90deg, #95a5a6 0%, #95a5a6 100%);
+  box-shadow: 0 0 8px rgba(149, 165, 166, 0.3);
   outline: none;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
+}
+#progress-bar:hover {
+  box-shadow: 0 0 12px rgba(149, 165, 166, 0.4);
 }
 #progress-bar::-webkit-slider-thumb {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #6ec6ff;
-  box-shadow: 0 0 8px #6ec6ffcc;
+  background: #95a5a6;
+  box-shadow: 0 0 8px rgba(149, 165, 166, 0.3);
   border: 2px solid #fff;
   cursor: pointer;
   transition: background 0.2s;
@@ -322,8 +368,8 @@ body {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #6ec6ff;
-  box-shadow: 0 0 8px #6ec6ffcc;
+  background: #95a5a6;
+  box-shadow: 0 0 8px rgba(149, 165, 166, 0.3);
   border: 2px solid #fff;
   cursor: pointer;
   transition: background 0.2s;
@@ -338,19 +384,19 @@ body {
   background: none;
   border: none;
   font-size: 22px;
-  color: #6ec6ff;
+  color: #95a5a6;
   cursor: pointer;
   border-radius: 50%;
   padding: 4px 7px;
   position: relative;
   z-index: 1;
-  box-shadow: 0 2px 8px #23252633;
-  transition: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 .music-btn:hover, .music-btn:active {
-  color: #6ec6ff;
-  background: none;
-  box-shadow: 0 2px 8px #23252633;
+  color: #95a5a6;
+  background: rgba(149, 165, 166, 0.1);
+  box-shadow: 0 2px 8px rgba(127, 140, 141, 0.1);
   transform: none;
 }
 .music-btn:active::after {
@@ -359,9 +405,10 @@ body {
 
 /* Blessing Box */
 .blessing-box {
-  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  background: rgba(245, 247, 250, 0.85);
+  color: #7f8c8d;
   border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(30,30,30,0.28);
+  box-shadow: 0 8px 32px 0 rgba(127, 140, 141, 0.1), 0 2px 8px rgba(127, 140, 141, 0.1);
   padding: 36px 28px 32px 28px;
   margin-top: 36px;
   width: 370px;
@@ -371,14 +418,19 @@ body {
   overflow: hidden;
   animation: blessingFadeIn 1.1s cubic-bezier(.4,2,.6,1) both;
   position: relative;
+  transition: all 0.3s ease;
+}
+.blessing-box:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 40px 0 rgba(127, 140, 141, 0.15), 0 4px 12px rgba(127, 140, 141, 0.15);
 }
 @keyframes blessingFadeIn {
   0% { opacity: 0; transform: translateY(40px) scale(0.95); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 .blessing-star {
-  color: #6ec6ff;
-  filter: drop-shadow(0 2px 8px #232526);
+  color: #95a5a6;
+  filter: drop-shadow(0 2px 8px rgba(127, 140, 141, 0.1));
   position: absolute;
   top: 18px;
   right: 24px;
@@ -391,20 +443,21 @@ body {
   100% { opacity: 1; transform: scale(1.18) rotate(10deg); }
 }
 .blessing-message {
-  color: #6ec6ff;
+  color: #7f8c8d;
   font-size: 21px;
   line-height: 1.85;
   font-weight: 500;
   letter-spacing: 0.01em;
-  text-shadow: 0 1px 0 #232526, 0 2px 8px #232526;
+  text-shadow: 0 1px 0 rgba(127, 140, 141, 0.1), 0 2px 8px rgba(127, 140, 141, 0.1);
   padding-top: 8px;
   padding-bottom: 8px;
   z-index: 1;
   position: relative;
+  animation: fadeIn 1s ease 0.5s both;
 }
 .blessing-heart {
   opacity: 0.85;
-  filter: drop-shadow(0 2px 8px #232526);
+  filter: drop-shadow(0 2px 8px rgba(127, 140, 141, 0.1));
   position: absolute;
   width: 28px;
   height: 28px;
@@ -425,10 +478,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(245, 247, 250, 0.95);
   z-index: 1000;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px 0 rgba(127, 140, 141, 0.15), 0 2px 8px rgba(127, 140, 141, 0.15);
 }
 .modal.show {
   display: flex;
@@ -439,7 +493,11 @@ body {
   max-height: 90vh;
   margin: auto;
   transform: scale(0.8);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  background: rgba(245, 247, 250, 0.95);
+  color: #7f8c8d;
+  box-shadow: 0 8px 32px 0 rgba(127, 140, 141, 0.15), 0 2px 8px rgba(127, 140, 141, 0.15);
+  animation: modalFadeIn 0.5s ease;
 }
 .modal.show .modal-content {
   transform: scale(1);
@@ -448,7 +506,7 @@ body {
   position: absolute;
   top: 20px;
   right: 20px;
-  color: white;
+  color: #bdc3c7;
   font-size: 30px;
   cursor: pointer;
   width: 40px;
@@ -481,6 +539,7 @@ body {
     width: 100vw;
     margin-top: 24px;
     padding: 0 4vw;
+    background: rgba(245, 247, 250, 0.9);
   }
   .memories-content {
     margin-top: 18px;
@@ -562,6 +621,7 @@ body {
     width: 96vw;
     padding: 6px 2vw 6px 2vw;
     border-radius: 10px;
+    background: rgba(245, 247, 250, 0.9);
   }
   .music-info {
     gap: 6px;
@@ -611,6 +671,7 @@ body {
     padding: 8px 2vw 8px 2vw;
     border-radius: 12px;
     margin-top: 14px;
+    background: rgba(245, 247, 250, 0.9);
   }
   .blessing-message {
     font-size: 10px;
@@ -626,6 +687,7 @@ body {
     max-width: 98vw;
     max-height: 60vh;
     border-radius: 8px;
+    background: rgba(245, 247, 250, 0.98);
   }
   .modal-close {
     top: 8px;
@@ -634,4 +696,67 @@ body {
     width: 24px;
     height: 24px;
   }
+  .memory-item {
+    background: rgba(245, 247, 250, 0.95);
+  }
+  .modal {
+    background: rgba(245, 247, 250, 0.98);
+  }
+  .modal-content {
+    background: rgba(245, 247, 250, 0.98);
+  }
+  input[type="text"], input[type="date"], textarea {
+    background: rgba(245, 247, 250, 0.9);
+    color: #7f8c8d;
+    border: 1px solid #bdc3c7;
+    box-shadow: 0 2px 8px rgba(127, 140, 141, 0.05);
+  }
+  input[type="text"]:focus, input[type="date"]:focus, textarea:focus {
+    border-color: #95a5a6;
+    box-shadow: 0 2px 12px rgba(149, 165, 166, 0.1);
+  }
+  button {
+    background: #95a5a6;
+    color: white;
+    box-shadow: 0 2px 8px rgba(149, 165, 166, 0.2);
+  }
+  button:hover {
+    background: #7f8c8d;
+    box-shadow: 0 4px 12px rgba(149, 165, 166, 0.3);
+  }
+}
+
+#countdown {
+  color: #95a5a6;
+  text-shadow: 0 0 20px rgba(149, 165, 166, 0.3);
+  font-size: 72px;
+  font-weight: bold;
+  animation: pulse 1s infinite alternate;
+}
+
+.anniversary-text {
+  display: block;
+  color: #95a5a6;
+  font-size: 48px;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(149, 165, 166, 0.18), 0 0 20px rgba(149, 165, 166, 0.08);
+  font-family: 'Prompt', sans-serif;
+  background: linear-gradient(90deg, #bfc9d1 0%, #e0e4e8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: anniversaryPulse 1.5s infinite alternate;
+  transition: transform 0.3s, text-shadow 0.3s;
+  text-align: center;
+  line-height: 1;
+}
+.anniversary-text:hover {
+  transform: scale(1.08) rotate(-2deg);
+  text-shadow: 0 0 24px #bfc9d1, 0 0 40px #e0e4e8;
+}
+@keyframes anniversaryPulse {
+  0% { text-shadow: 0 0 10px #bfc9d1, 0 0 20px #e0e4e8; }
+  100% { text-shadow: 0 0 30px #bfc9d1, 0 0 60px #e0e4e8; }
 } 
