@@ -114,19 +114,43 @@
     }
     @media (max-width: 600px) {
       .title, .subtitle {
-        font-size: 36px;
-      }
-      .naming {
         font-size: 28px;
       }
+      .naming {
+        font-size: 18px;
+      }
       .img-main {
-        width: 180px;
-        height: 200px;
+        width: 90vw;
+        height: 38vw;
+        min-width: 180px;
+        min-height: 120px;
+        max-width: 98vw;
+        max-height: 60vw;
       }
       .img-small, .img-small2 {
-        width: 40px;
-        height: 60px;
+        width: 32vw;
+        height: 48vw;
+        min-width: 40px;
+        min-height: 60px;
+        max-width: 80px;
+        max-height: 120px;
       }
+      .images {
+        gap: 4vw;
+        margin-top: 16px;
+        flex-wrap: wrap;
+      }
+      .music-player, .blessing-box {
+        width: 98vw;
+        min-width: 0;
+        padding: 12px 4px;
+        font-size: 14px;
+      }
+      .music-title { font-size: 15px; }
+      .music-cover { width: 32px; height: 32px; }
+      .blessing-message { font-size: 13px; }
+      .blessing-star { font-size: 22px; right: 8px; top: 6px; }
+      .slider-arrow { width: 38px; height: 38px; font-size: 24px; }
     }
     .floating-left {
       animation: floatLeft 3s ease-in-out infinite;
@@ -150,38 +174,15 @@
       50% { transform: rotate(15deg) translateY(-10px); }
     }
     .img-small, .img-main, .img-small2 {
-      transition: all 0.3s cubic-bezier(.4,2,.6,1);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-      position: relative;
+      transition: all 0.3s ease;
     }
-    .img-small:hover, .img-main:hover, .img-small2:hover {
-      box-shadow: 0 0 32px 8px #6ec6ff88, 0 8px 32px rgba(0,0,0,0.5);
-      border: 3px solid transparent;
-      background: linear-gradient(135deg, #fff 60%, #6ec6ff 100%) border-box;
-      outline: 3px solid #ffb6c1;
-      outline-offset: 2px;
-      transform: scale(1.13) rotate(-2deg);
-      z-index: 20;
-      animation: imgBounce 0.5s;
+    .img-small:hover, .img-small2:hover {
+      transform: scale(1.2) rotate(0deg) !important;
+      z-index: 10;
     }
-    @keyframes imgBounce {
-      0% { transform: scale(1.13) rotate(-2deg); }
-      30% { transform: scale(1.18) rotate(2deg); }
-      60% { transform: scale(1.08) rotate(-2deg); }
-      100% { transform: scale(1.13) rotate(-2deg); }
-    }
-    /* Particle around image */
-    .img-particle {
-      position: absolute;
-      pointer-events: none;
-      z-index: 30;
-      animation: imgParticleMove 1.2s linear forwards;
-      opacity: 0.7;
-    }
-    @keyframes imgParticleMove {
-      0% { transform: scale(0.5) translateY(0); opacity: 0.7; }
-      80% { opacity: 1; }
-      100% { transform: scale(1.2) translateY(-40px); opacity: 0; }
+    .img-main:hover {
+      transform: scale(1.1) !important;
+      z-index: 10;
     }
     .title, .subtitle, .naming {
       opacity: 0;
@@ -970,28 +971,63 @@
         setTimeout(() => { ripple.remove(); }, 600);
       });
     });
-    // Particle around image on hover
-    function spawnImgParticles(img) {
-      for(let i=0;i<8;i++){
-        const p = document.createElement('span');
-        p.className = 'img-particle';
-        p.innerHTML = '✨';
-        p.style.left = (img.offsetLeft + img.width/2 + Math.cos(i/8*2*Math.PI)*img.width/2 + Math.random()*10-5) + 'px';
-        p.style.top = (img.offsetTop + img.height/2 + Math.sin(i/8*2*Math.PI)*img.height/2 + Math.random()*10-5) + 'px';
-        p.style.fontSize = (Math.random()*10+12)+'px';
-        p.style.color = ['#6ec6ff','#ffb6c1','#fff','#f8bbd0'][Math.floor(Math.random()*4)];
-        document.body.appendChild(p);
-        setTimeout(()=>p.remove(),1200);
-      }
-    }
-    document.querySelectorAll('.img-small, .img-main, .img-small2').forEach(img => {
-      img.addEventListener('mouseenter', function(){
-        spawnImgParticles(this);
+    // Mobile swipe for images (if not slider)
+    let touchStartX = null;
+    let touchMoved = false;
+    const imgs = document.querySelectorAll('.img-main');
+    imgs.forEach(img => {
+      img.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+        touchMoved = false;
       });
-      img.addEventListener('click', function(){
-        spawnImgParticles(this);
+      img.addEventListener('touchmove', function(e) {
+        touchMoved = true;
+      });
+      img.addEventListener('touchend', function(e) {
+        if (!touchMoved) return;
+        let endX = e.changedTouches[0].clientX;
+        if (endX - touchStartX > 40) {
+          // swipe right (show previous)
+          if (this.previousElementSibling && this.previousElementSibling.classList.contains('img-main')) {
+            this.style.display = 'none';
+            this.previousElementSibling.style.display = 'block';
+          }
+        } else if (touchStartX - endX > 40) {
+          // swipe left (show next)
+          if (this.nextElementSibling && this.nextElementSibling.classList.contains('img-main')) {
+            this.style.display = 'none';
+            this.nextElementSibling.style.display = 'block';
+          }
+        }
+        touchStartX = null;
+        touchMoved = false;
       });
     });
+    // Modal full screen for mobile
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    function setModalFullScreen() {
+      if(window.innerWidth < 600) {
+        modalImg.style.width = '98vw';
+        modalImg.style.height = 'auto';
+        modalImg.style.maxHeight = '90vh';
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
+      } else {
+        modalImg.style.width = '';
+        modalImg.style.height = '';
+        modalImg.style.maxHeight = '';
+      }
+    }
+    window.addEventListener('resize', setModalFullScreen);
+    setModalFullScreen();
+    // Reduce particle/bubble on mobile
+    if(window.innerWidth < 600) {
+      window.particleInterval && clearInterval(window.particleInterval);
+      window.bubbleInterval && clearInterval(window.bubbleInterval);
+      window.particleInterval = setInterval(createParticle, 600);
+      window.bubbleInterval = setInterval(createBubble, 1800);
+    }
   </script>
 </body>
 </html>
