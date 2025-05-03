@@ -470,30 +470,168 @@ body {
 
 /* Responsive */
 @media (max-width: 600px) {
+  body {
+    padding: 0;
+    min-width: 100vw;
+    box-sizing: border-box;
+  }
+  .memories-container {
+    max-width: 100vw;
+    width: 100vw;
+    margin-top: 24px;
+    padding: 0 4vw;
+  }
+  .memories-content {
+    margin-top: 18px;
+  }
+  .memories-title {
+    font-size: 28px;
+    word-break: break-word;
+  }
+  .memories-icon {
+    font-size: 22px;
+    margin-left: 4px;
+  }
+  .memories-desc {
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+  .memories-form {
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+  .code-input {
+    width: 28px;
+    height: 34px;
+    font-size: 16px;
+    border-width: 2px;
+  }
+  .memories-message {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .memories-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    border-width: 2px;
+  }
+  .container {
+    margin-top: 18px;
+    width: 100vw;
+    padding: 0 4vw;
+  }
   .title, .subtitle {
-    font-size: 36px;
+    font-size: 28px;
+    text-shadow: 0 0 6px #6ec6ff88, 0 0 12px #6ec6ff44;
+  }
+  .title .star, .title .star2 {
+    font-size: 18px;
+    left: -18px;
+    right: -18px;
+    top: -12px;
+  }
+  .subtitle {
+    margin-top: -4px;
   }
   .naming {
-    font-size: 28px;
+    font-size: 18px;
+    gap: 4px;
+    margin-top: 4px;
+  }
+  .naming .party {
+    font-size: 14px;
+  }
+  .images {
+    margin-top: 12px;
+    gap: 4px;
   }
   .img-main {
-    width: 180px;
-    height: 200px;
+    width: 100px;
+    height: 110px;
+    border-radius: 10px;
   }
   .img-small, .img-small2 {
-    width: 40px;
-    height: 60px;
+    width: 24px;
+    height: 36px;
+    border-radius: 6px;
+    margin-bottom: 12px;
   }
   .music-player {
     width: 98vw;
     min-width: 0;
-    padding: 12px;
+    padding: 8px 2vw 8px 2vw;
+    margin-top: 16px;
+    border-radius: 14px;
   }
-  .memories-title { font-size: 36px; }
-  .memories-icon { font-size: 28px; }
-  .memories-form { gap: 12px; }
-  .code-input { width: 32px; height: 40px; font-size: 20px; }
-  .blessing-box { width: 98vw; min-width: 0; padding: 18px 7px 18px 7px; }
-  .blessing-message { font-size: 15px; }
-  .blessing-star { font-size: 28px; right: 8px; top: 6px; }
+  .music-info {
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .music-cover {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+  }
+  .music-title {
+    font-size: 13px;
+    margin-bottom: 1px;
+  }
+  .music-artist {
+    font-size: 9px;
+  }
+  .music-progress-group {
+    gap: 2px;
+    margin: 6px 0 4px 0;
+  }
+  .music-time {
+    font-size: 8px;
+    width: 24px;
+  }
+  #progress-bar {
+    height: 3px;
+    border-radius: 3px;
+  }
+  #progress-bar::-webkit-slider-thumb, #progress-bar::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+  }
+  .music-controls {
+    gap: 12px;
+    margin-top: 1px;
+  }
+  .music-btn {
+    font-size: 18px;
+    padding: 4px 6px;
+    border-radius: 50%;
+  }
+  .blessing-box {
+    width: 98vw;
+    min-width: 0;
+    padding: 8px 2vw 8px 2vw;
+    border-radius: 12px;
+    margin-top: 14px;
+  }
+  .blessing-message {
+    font-size: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+  .blessing-star {
+    font-size: 16px;
+    right: 4px;
+    top: 2px;
+  }
+  .modal-content {
+    max-width: 98vw;
+    max-height: 60vh;
+    border-radius: 8px;
+  }
+  .modal-close {
+    top: 8px;
+    right: 8px;
+    font-size: 18px;
+    width: 24px;
+    height: 24px;
+  }
 } 
