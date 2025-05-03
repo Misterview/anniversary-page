@@ -114,43 +114,19 @@
     }
     @media (max-width: 600px) {
       .title, .subtitle {
-        font-size: 28px;
+        font-size: 36px;
       }
       .naming {
-        font-size: 18px;
+        font-size: 28px;
       }
       .img-main {
-        width: 90vw;
-        height: 38vw;
-        min-width: 180px;
-        min-height: 120px;
-        max-width: 98vw;
-        max-height: 60vw;
+        width: 180px;
+        height: 200px;
       }
       .img-small, .img-small2 {
-        width: 32vw;
-        height: 48vw;
-        min-width: 40px;
-        min-height: 60px;
-        max-width: 80px;
-        max-height: 120px;
+        width: 40px;
+        height: 60px;
       }
-      .images {
-        gap: 4vw;
-        margin-top: 16px;
-        flex-wrap: wrap;
-      }
-      .music-player, .blessing-box {
-        width: 98vw;
-        min-width: 0;
-        padding: 12px 4px;
-        font-size: 14px;
-      }
-      .music-title { font-size: 15px; }
-      .music-cover { width: 32px; height: 32px; }
-      .blessing-message { font-size: 13px; }
-      .blessing-star { font-size: 22px; right: 8px; top: 6px; }
-      .slider-arrow { width: 38px; height: 38px; font-size: 24px; }
     }
     .floating-left {
       animation: floatLeft 3s ease-in-out infinite;
@@ -200,12 +176,139 @@
     }
     
     .music-player {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s ease forwards;
-      animation-delay: 1s;
+      background: rgba(35,37,38,0.85);
+      color: #f8bbd0;
+      border-radius: 28px;
+      box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18), 0 2px 8px #23252655;
+      padding: 32px 32px 22px 32px;
+      margin-top: 32px;
+      width: 370px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(255,255,255,0.08);
+      animation: fadeInMusic 1.2s cubic-bezier(.4,2,.6,1) both;
     }
-    
+    @keyframes fadeInMusic { from { opacity: 0; transform: translateY(40px) scale(0.95);} to { opacity: 1; transform: none;} }
+    .music-info {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 10px;
+    }
+    .music-cover {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px #23252655;
+      border: 2.5px solid #f8bbd0;
+      transition: box-shadow 0.3s, transform 0.5s cubic-bezier(.4,2,.6,1);
+    }
+    .music-player.playing .music-cover {
+      animation: rotateCover 3.5s linear infinite;
+      box-shadow: 0 0 24px #f8bbd0aa, 0 2px 8px #23252655;
+      border-color: #ffb6c1;
+    }
+    @keyframes rotateCover { 100% { transform: rotate(360deg); } }
+    .music-title-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .music-title {
+      font-size: 26px;
+      font-weight: bold;
+      color: #f8bbd0 !important;
+      text-shadow: 0 2px 8px #23252633;
+      letter-spacing: 0.01em;
+      margin-bottom: 2px;
+      animation: fadeInMusic 1.2s 0.2s both;
+    }
+    .music-artist {
+      font-size: 16px;
+      color: #f8bbd0 !important;
+      font-weight: 600;
+      opacity: 0.8;
+      letter-spacing: 0.01em;
+      animation: fadeInMusic 1.2s 0.3s both;
+    }
+    .music-progress-group {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      gap: 8px;
+      margin: 16px 0 10px 0;
+    }
+    .music-time {
+      font-size: 15px;
+      color: #f8bbd0 !important;
+      width: 48px;
+      text-align: center;
+      font-weight: bold;
+      text-shadow: 0 2px 8px #23252633;
+    }
+    #progress-bar {
+      flex: 1;
+      accent-color: #f8bbd0;
+      height: 6px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, #f8bbd0 0%, #ffb6c1 100%);
+      box-shadow: 0 0 8px #f8bbd0aa;
+      outline: none;
+      transition: background 0.3s;
+    }
+    #progress-bar::-webkit-slider-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #ffb6c1;
+      box-shadow: 0 0 8px #f8bbd0cc;
+      border: 2px solid #fff;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    #progress-bar::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #ffb6c1;
+      box-shadow: 0 0 8px #f8bbd0cc;
+      border: 2px solid #fff;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .music-controls {
+      display: flex;
+      justify-content: center;
+      gap: 38px;
+      margin-top: 2px;
+    }
+    .music-btn {
+      background: none;
+      border: none;
+      font-size: 38px;
+      color: #f8bbd0;
+      cursor: pointer;
+      border-radius: 50%;
+      padding: 8px 12px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 2px 8px #23252633;
+      transition: none;
+    }
+    .music-btn:hover, .music-btn:active {
+      color: #f8bbd0;
+      background: none;
+      box-shadow: 0 2px 8px #23252633;
+      transform: none;
+    }
+    .music-btn:active::after {
+      display: none;
+    }
     .blessing-box {
       opacity: 0;
       transform: translateY(20px);
@@ -938,95 +1041,12 @@
   });
   </script>
   <script>
-    // Floating hearts
-    function createHeart() {
-      const heart = document.createElement('div');
-      heart.className = 'floating-heart';
-      heart.innerHTML = '💗';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
-      heart.style.opacity = Math.random() * 0.5 + 0.5;
-      document.body.appendChild(heart);
-      setTimeout(() => { heart.remove(); }, 4000);
-    }
-    setInterval(createHeart, 1800);
-    // Parallax effect
-    document.addEventListener('mousemove', function(e) {
-      const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
-      const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
-      const container = document.querySelector('.container');
-      if(container) container.style.transform = `translate(${moveX}px, ${moveY}px)`;
-    });
-    // Ripple effect for music buttons
-    document.querySelectorAll('.music-btn').forEach(button => {
-      button.addEventListener('click', function(e) {
-        const ripple = document.createElement('span');
-        ripple.className = 'ripple';
-        this.appendChild(ripple);
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = e.clientX - rect.left - size/2 + 'px';
-        ripple.style.top = e.clientY - rect.top - size/2 + 'px';
-        setTimeout(() => { ripple.remove(); }, 600);
-      });
-    });
-    // Mobile swipe for images (if not slider)
-    let touchStartX = null;
-    let touchMoved = false;
-    const imgs = document.querySelectorAll('.img-main');
-    imgs.forEach(img => {
-      img.addEventListener('touchstart', function(e) {
-        touchStartX = e.touches[0].clientX;
-        touchMoved = false;
-      });
-      img.addEventListener('touchmove', function(e) {
-        touchMoved = true;
-      });
-      img.addEventListener('touchend', function(e) {
-        if (!touchMoved) return;
-        let endX = e.changedTouches[0].clientX;
-        if (endX - touchStartX > 40) {
-          // swipe right (show previous)
-          if (this.previousElementSibling && this.previousElementSibling.classList.contains('img-main')) {
-            this.style.display = 'none';
-            this.previousElementSibling.style.display = 'block';
-          }
-        } else if (touchStartX - endX > 40) {
-          // swipe left (show next)
-          if (this.nextElementSibling && this.nextElementSibling.classList.contains('img-main')) {
-            this.style.display = 'none';
-            this.nextElementSibling.style.display = 'block';
-          }
-        }
-        touchStartX = null;
-        touchMoved = false;
-      });
-    });
-    // Modal full screen for mobile
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImage');
-    function setModalFullScreen() {
-      if(window.innerWidth < 600) {
-        modalImg.style.width = '98vw';
-        modalImg.style.height = 'auto';
-        modalImg.style.maxHeight = '90vh';
-        modal.style.alignItems = 'center';
-        modal.style.justifyContent = 'center';
-      } else {
-        modalImg.style.width = '';
-        modalImg.style.height = '';
-        modalImg.style.maxHeight = '';
-      }
-    }
-    window.addEventListener('resize', setModalFullScreen);
-    setModalFullScreen();
-    // Reduce particle/bubble on mobile
-    if(window.innerWidth < 600) {
-      window.particleInterval && clearInterval(window.particleInterval);
-      window.bubbleInterval && clearInterval(window.bubbleInterval);
-      window.particleInterval = setInterval(createParticle, 600);
-      window.bubbleInterval = setInterval(createBubble, 1800);
+    // Music player cover rotate on play
+    const audioEl = document.getElementById('audio');
+    const musicPlayer = document.querySelector('.music-player');
+    if(audioEl && musicPlayer) {
+      audioEl.addEventListener('play', ()=> musicPlayer.classList.add('playing'));
+      audioEl.addEventListener('pause', ()=> musicPlayer.classList.remove('playing'));
     }
   </script>
 </body>
