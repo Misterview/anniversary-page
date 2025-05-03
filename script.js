@@ -162,9 +162,10 @@ function showAnniversaryPage() {
     <div class="container">
       <div class="title">
         <span class="star">✦</span>
-        Happy<br>
+        Happy
         <span class="star2">✦</span>
       </div>
+      <div class="anniversary-text">anniversary</div>
       <div class="subtitle">3 month <span class="party">🎉</span></div>
       <div class="images">
         <img class="img-small show-modal floating-left" src="3.jpg" style="cursor:pointer;">
